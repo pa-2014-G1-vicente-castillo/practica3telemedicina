@@ -9,8 +9,9 @@
   },
   "name": "proyecto-sd",
   "version": "1.0.0",
-  "main": "datos.js",
+  "main": "servidor_rest.js",
   "scripts": {
+    "start": "node servidor_rest.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
