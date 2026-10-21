@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplicación Gestor</title>
+
+    <style>
+        .seccion{display:none;}
+        .activa{display:block;}
+    </style>
+
+    <link rel="stylesheet" href="estilo.css">
+
+    <script src="rest.js"></script>
+    <script src="main.js"></script>
+    
+</head>
+
+<body>
+    <h1>Aplicación Gestor</h1>
+    <!--Sección login-->
+    <div id="seccion_login" class="seccion activa">
+        <h2>Acceso</h2>
+        <div>Usuario:<input type="text" id="login" placeholder="Usuario"></div>
+        <div>Contraseña:<input type="password"  id="password" placeholder="Password"></div>
+        <div class="button-container">
+            <button id="boton_entrar" onclick="hacerLogin()">Entrar</button>
+            <button id="boton_registro" onclick="hacerRegistro()">Registrarse</button>
+        </div>
+       <!--<p id="msg-login"></p>--> 
+
+    </div>
+
+    <!--Seccion Registro-->
+    <div id="seccion_registro" class="seccion">
+        <h2>Datos Gestor</h2>
+        <div>Nombre: <input type="text" id="nombre_reg"> </div>
+        <div>Apellidos: <input type="text" id="apellidos_reg"></div>
+        <div>Login: <input type="text" id="login_reg"></div>
+        <div>Contraseña: <input type="password" id="password_reg"></div>
+        <div class="button-container">
+            <button id="btn_guardar_registro" onclick="guardarRegistro()">Guardar</button>
+            <button id="btn_cancelar_registro" onclick="cancelarRegistro()">Cancelar</button>
+        </div>
+
+        <!--<p id="msg-registro"></p>-->
+    </div>
+
+
+    <!--Seccion Inicio-->
+    <div id="seccion_inicio" class="seccion">
+        <h2>Inicio</h2>
+        <div class="cabecera-inicio">
+            <p id="bienvenida"></p>
+            <button id="btn_editar_datos" onclick="editarDatos()">Editar Datos</button>
+        </div>
+        <h3>Búsqueda de recursos</h3>
+
+        <div>
+            Categoría:<br>
+            <select id="categoria">
+                <option value="">Todos</option>
+            </select>
+        </div>
+
+        <div>
+            Modelo:<br>
+            <select id="modelo">
+                <option value="">Todos</option>
+            </select>
+        </div>
+
+        <div>
+            Ubicación:<br>
+            <select id="ubicacion">
+                <option value="">Todos</option>
+            </select>
+        </div>
+
+        <div>
+        Estado:
+        <select id="estado">
+                <option value="">Todos</option>
+                <option value="0">Operativo</option>
+                <option value="1">De baja/defectuoso</option>
+                <option value="2">En mantenimiento</option>
+            </select>
+        </div>
+        <button id="btn_buscar" onclick="buscarRecurso()">Buscar</button>
+
+        <h3>Recursos</h3>
+        <table class="style-table id" id="tabla_recurso">
+            <thead>
+                <tr>
+                    <th>N.Serie</th>
+                    <th>Categoría</th>
+                    <th>Modelo</th>
+                    <th>Ubicación</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tbody_recursos">
+                <!--filas creadas por main.js-->
+            </tbody>
+        </table>
+
+        <button id="btn_anyadir" onclick="anyadirRecurso()">Añadir Recurso</button>
+
+        <h3>Avisos</h3>
+        <table>
+            <thead>
+                <tr><th>Fecha</th><th>Origen</th><th>Texto</th></tr>
+            </thead>
+            <tbody id="tbody_avisos"></tbody>
+        </table>
+
+        <h3>Práctica 3</h3>
+        <button id="btn_enviar_reservas" onclick="enviarReservasFinalizadas()"> Enviar reservas al Ministerio </button>
+
+        <h3>Ranking de reservas por área médica</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Posición</th>
+                    <th>Área médica</th>
+                    <th>Número de reservas</th>
+                </tr>
+            </thead>
+            <tbody id="tbody_ranking"></tbody>
+        </table>
+
+        <button id="btn_salir" onclick="salir()">Salir</button>
+    </div>
+
+    <!------------Seccion Ficha Recurso---------------------->
+    <div id="seccion_recurso" class="seccion">
+        <h2>Recurso</h2>
+
+        <h3>Datos Recurso</h3>
+        <div>
+            Categoría:<br>
+            <select id="recurso_categoria">
+                <option value="">Todos</option>
+            </select>
+        </div>
+
+        <div>
+            Modelo:<br>
+            <select id="recurso_modelo">
+                <option value="">Todos</option>
+            </select>
+        </div>
+
+        <div>
+            Núm. Serie:<input class="text" id="recurso_num_serie">
+        </div>
+
+        <div>
+            Ubicación:<br>
+            <select id="recurso_ubicacion">
+                <option value="">Todos</option>
+            </select>
+        </div>
+
+        <div>
+        Estado:
+        <select id="recurso_estado">
+                <option value="">Todos</option>
+                <option value="0">Operativo</option>
+                <option value="1">De baja/defectuoso</option>
+                <option value="2">En mantenimiento</option>
+            </select>
+        </div>
+        
+        <button onclick="guardarRecurso()">Guardar</button>
+
+        <h3>Reservas</h3>
+        <table class="style-table">
+        <thead>
+            <tr>
+            <th>Sanitario</th>
+            <th>Horas estimadas</th>
+            <th>Fecha petición</th>
+            <th>Fecha inicio</th>
+            <th>Fecha fin</th>
+            </tr>
+        </thead>
+        <tbody id="tbody_reservas"></tbody>
+        </table>
+
+        <h3>Reseñas</h3>
+        <table class="style-table">
+        <thead>
+            <tr>
+            <th>Fecha</th>
+            <th>Sanitario</th>
+            <th>Valoración</th>
+            <th>Comentario</th>
+            </tr>
+        </thead>
+        <tbody id="tbody_resenyas"></tbody>
+        </table>
+
+        <button onclick="volverAListado()">Volver al listado</button>
+    </div>
+
+</body>
+</html>

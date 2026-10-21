@@ -1,0 +1,151 @@
+
+body{
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    background-color: #c8e1ef;
+    font-family: Arial, sans-serif;
+}
+
+h1, h2, h3{
+    text-align: center;
+    color: rgb(17, 22, 61);
+    margin: 10px 0;
+}
+
+p{
+    text-align:center;
+    padding: 8px;
+    font-weight: bold; 
+    font-size: 16px;
+    color: black;
+}
+.cabecera-inicio{
+    text-align: center;
+}
+
+.cabecera-inicio p,
+.cabecera-inicio button{
+    display: inline-block;
+    vertical-align: middle;
+    margin: 5px;
+}
+
+/* ====== Secciones SPA ====== */
+.seccion{ 
+    display: none; 
+}
+.activa{ 
+    display: block; 
+}
+
+/* Caja para que no quede todo “pegado” al fondo */
+.seccion.activa{
+    background-color: #c9e2f1; /* mismo fondo */
+    padding: 10px;
+}
+
+/* Bloques centrados*/
+#seccion_login div,
+#seccion_registro div,
+#seccion_inicio div,
+#seccion_recurso div{
+    width: 90%;
+    max-width: 600px;
+    margin: 8px auto;
+}
+
+/* inputs y selects */
+input[type="text"],
+input[type="password"],
+select,
+input.text{
+    font-size:16px;
+    font-family: sans-serif;
+    margin: 5px 0;
+    padding: 8px;
+    width: 100%;
+    background-color: #bbd1ef;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+/* botones */
+button{
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    margin: 10px auto;
+    padding: 8px 14px;
+    cursor: pointer;
+    display: block;           /* centrado fácil */
+    background-color: #bbd1ef;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+button:hover {
+    background-color: #31487a;
+    color:white;
+}
+
+/* tablas*/
+table{
+    border-collapse: collapse;
+    width: 100%;     
+    margin: 0px auto;
+    margin-bottom: 20px;
+    background-color: white; /* para que se lea bien sobre el fondo */
+}
+
+table, th, td {
+    border: 1px solid black;
+    padding: 5px;
+    text-align: center;
+}
+
+th{
+    background-color: #31487a;
+    color:white;
+    font-size: 18px;
+}
+
+td{
+    font-size: 14px;
+}
+
+/* Botones dentro de tablas (que no sean gigantes) */
+td button{
+    display: inline-block;
+    margin: 3px;
+    padding: 6px 10px;
+    font-size: 14px;
+}
+
+/*FILAS RESERVADAS */
+.reserva_finalizada { 
+    background-color: white; 
+}
+.reserva_en_uso_correcta { 
+    background-color: #2d77de; 
+} 
+
+.reserva_en_uso_superada { 
+    background-color: #f08d8d; 
+} 
+
+.reserva_pendiente { 
+    background-color: #75e89f;
+}  
+
+
+.aviso_rojo {
+    background-color: #ffb3b3;
+}
+
+.aviso_azul {
+    background-color: #b3d9ff;
+}
+
+.aviso_verde {
+    background-color: #b3ffb3;
+}
