@@ -1,4 +1,4 @@
-//----------------WEBSOCKET-----------------
+/*----------------WEBSOCKET-----------------
 var conexionAvisos = null;
 
 function abrirWebSocketGestor() {
@@ -34,6 +34,7 @@ function cerrarWebSocketAvisos() {//cierra porque el usuario sale
         conexionAvisos= null;
     }
 }
+*/
 
 function pintarAviso(aviso) {
     var tbody= document.getElementById("tbody_avisos");
@@ -171,7 +172,7 @@ function hacerLogin() {
                 console.log("Gestor:",gestor.nombre, gestor.apellidos);
                 gestorActual=gestor;
                 mostrarBienvenida(gestor);
-                abrirWebSocketGestor();// se pone depues de obtener los datos del gestor, porque necesita gestAct, gestId, nombre y apellidos
+                //abrirWebSocketGestor();// se pone depues de obtener los datos del gestor, porque necesita gestAct, gestId, nombre y apellidos
             }else{
                 console.log("No se pudo obtener datos del gestor")
             }
@@ -219,7 +220,7 @@ function guardarRegistro(){
                     gestorActual=g;
                     cambiarSeccion("seccion_inicio");
                     mostrarBienvenida(g);
-                    abrirWebSocketGestor(); //actualiza la identeificacion de WB si el gestor cambia su nombre/apellido
+                    //abrirWebSocketGestor(); //actualiza la identeificacion de WB si el gestor cambia su nombre/apellido
                    } 
                 });
                 modoEdicionGestor=false;
