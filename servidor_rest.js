@@ -3,7 +3,7 @@ var jwt = require("jwt-simple");
 
 var clave = "miSecretoMasOscuro"; // La misma clave que utiliza el servidor de avisos.
 var app = express();
-var avisos = require("./servidor_socket");
+//var avisos = require("./servidor_socket");
 
 
 //1. importar el cliente de supabase 
@@ -213,7 +213,7 @@ app.post("/api/recursos", async function(req, res) {
         .insert(nuevoRecurso).select().single();
     if (errorInsertar) return res.status(500).json("Error al insertar el recurso");
 
-    avisos.avisarNuevoRecurso(req.gestorId, creado);
+    //avisos.avisarNuevoRecurso(req.gestorId, creado);
     res.status(201).json(creado);
 });
 
